@@ -1,7 +1,7 @@
 package command
 
 import (
-	"github.com/BSick7/envoy/envoy"
+	"github.com/BSick7/envoy/store"
 	"os"
 	"strings"
 )
@@ -20,7 +20,7 @@ func (c *BackupCommand) Run(args []string) int {
 		return 1
 	}
 
-	conf := envoy.Config{
+	conf := store.Config{
 		HttpAddress: httpAddr,
 		AclToken:    token,
 	}
@@ -32,7 +32,7 @@ func (c *BackupCommand) Run(args []string) int {
 	}
 
 	if filename == "" {
-		if err := envoy.Backup(conf, os.Stdout); err != nil {
+		if err := store.Backup(conf, os.Stdout); err != nil {
 			c.Ui.Error(err.Error())
 			return 1
 		}
@@ -44,7 +44,7 @@ func (c *BackupCommand) Run(args []string) int {
 		}
 		defer file.Close()
 
-		if err := envoy.Backup(conf, file); err != nil {
+		if err := store.Backup(conf, file); err != nil {
 			c.Ui.Error(err.Error())
 			return 1
 		}

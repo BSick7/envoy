@@ -1,6 +1,14 @@
 hash: 1072ecd8547d78957672b1f1d29e81b77660bdc4dcc2c7e97ce01b71e02b69a0
-updated: 2016-06-16T10:55:28.580749-04:00
+updated: 2016-06-16T14:28:42.4191679-04:00
 imports:
+- name: github.com/armon/go-radix
+  version: 4239b77079c7b5d1243b7b4736304ce8ddb6f0f2
+  subpackages:
+  - github.com\armon\go-radix
+- name: github.com/bgentry/speakeasy
+  version: e1439544d8ecd0f3e9373a636d447668096a8f81
+  subpackages:
+  - github.com\bgentry\speakeasy
 - name: github.com/hashicorp/consul
   version: 26a0ef8c41aa2252ab4cf0844fc6470c8e1d8256
   subpackages:
@@ -15,6 +23,17 @@ imports:
   - coordinate
   - serf
   - github.com\hashicorp\serf\coordinate
+- name: github.com/mattn/go-isatty
+  version: 56b76bdf51f7708750eac80fa38b952bb9f32639
+  subpackages:
+  - github.com\mattn\go-isatty
 - name: github.com/mitchellh/cli
   version: 168daae10d6ff81b8b1201b0a4c9607d7e9b82e3
+  subpackages:
+  - github.com\mitchellh\cli
+- name: golang.org/x/sys
+  version: 20457ee8ea8546920d3f4e19e405da45250dc5a5
+  subpackages:
+  - unix
+  - golang.org\x\sys\unix
 devImports: []
