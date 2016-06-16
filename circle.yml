@@ -1,0 +1,34 @@
+machine:
+  environment:
+    GOPATH: "$HOME/.go_workspace"
+    IMPORT_PATH: "github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME"
+    BUILD_PATH: "$GOPATH/src/$IMPORT_PATH"
+
+checkout:
+  post:
+    - mkdir -p "$GOPATH/src/$IMPORT_PATH"
+    - rm -rf "$GOPATH/src/$IMPORT_PATH"
+    - rsync -azC --delete ./ "$GOPATH/src/$IMPORT_PATH/"
+
+dependencies:
+  cache_directories:
+    - /home/ubuntu/go
+  pre:
+    - bash -c "$(curl -fsSL https://gist.githubusercontent.com/newtonlabs/aff90370d4cf8bc3ea2e/raw)"
+    - go version
+  override:
+    - cd "$BUILD_PATH" && make deps
+    - cd "$BUILD_PATH" && make build
+
+test:
+  override:
+    - cd "$BUILD_PATH" && make vet
+    - cd "$BUILD_PATH" && make test
+  post:
+    - cp "$BUILD_PATH/unit-tests.xml" "$CIRCLE_TEST_REPORTS/unit-tests.xml"
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - cd "$BUILD_PATH" && make release
