@@ -22,6 +22,9 @@ test:
 		| tee /dev/tty \
 		| go-junit-report > unit-tests.xml
 
+docker-build:
+	CGO_ENABLED=0 GOOS=linux go build -ldflags "-X main.Version=`cat VERSION`" -a -installsuffix cgo -o dist/envoy_docker .
+
 release:
 	go get github.com/mitchellh/gox
 	go get github.com/tcnksm/ghr

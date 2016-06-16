@@ -31,4 +31,5 @@ deployment:
   release:
     branch: master
     commands:
+      - cd "$BUILD_PATH" && make docker-build
       - cd "$BUILD_PATH" && make release
