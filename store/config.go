@@ -1,4 +1,4 @@
-package envoy
+package store
 
 import "github.com/hashicorp/consul/api"
 

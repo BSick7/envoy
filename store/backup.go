@@ -1,4 +1,4 @@
-package envoy
+package store
 
 import (
 	"archive/tar"
