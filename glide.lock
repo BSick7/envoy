@@ -1,0 +1,20 @@
+hash: 1072ecd8547d78957672b1f1d29e81b77660bdc4dcc2c7e97ce01b71e02b69a0
+updated: 2016-06-16T10:55:28.580749-04:00
+imports:
+- name: github.com/hashicorp/consul
+  version: 26a0ef8c41aa2252ab4cf0844fc6470c8e1d8256
+  subpackages:
+  - github.com\hashicorp\consul\api
+- name: github.com/hashicorp/go-cleanhttp
+  version: 875fb671b3ddc66f8e2f0acc33829c8cb989a38d
+  subpackages:
+  - github.com\hashicorp\go-cleanhttp
+- name: github.com/hashicorp/serf
+  version: e4ec8cc423bbe20d26584b96efbeb9102e16d05f
+  subpackages:
+  - coordinate
+  - serf
+  - github.com\hashicorp\serf\coordinate
+- name: github.com/mitchellh/cli
+  version: 168daae10d6ff81b8b1201b0a4c9607d7e9b82e3
+devImports: []

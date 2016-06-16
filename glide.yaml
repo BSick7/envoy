@@ -1,0 +1,5 @@
+package: github.com/BSick7/envoy
+import:
+- package: github.com/hashicorp/consul
+  version: 0.6.4
+- package: github.com/mitchellh/cli
