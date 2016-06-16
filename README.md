@@ -29,6 +29,17 @@ $ make deps
 $ make install
 ```
 
+### Docker
+
+This utility can be built as a statically linked library that can be embedded in a `FROM scratch` docker image.
+
+```
+$ make docker-build
+$ cp dist/envoy_docker destination
+```
+
+Alternatively, download the binary from [releases](https://github.com/BSick7/envoy/releases).
+
 ## Usage
 
 ```bash
